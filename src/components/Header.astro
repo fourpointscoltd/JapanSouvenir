@@ -1,0 +1,47 @@
+---
+interface Props {
+  currentPage?: string;
+}
+
+const { currentPage = '' } = Astro.props;
+---
+
+<header class="fixed top-0 w-full z-50 transition-all duration-300" id="header">
+    <div class="container mx-auto px-6 py-6 flex justify-between items-center">
+        <a href="/" class="text-xl font-serif tracking-widest font-bold z-50 mix-blend-difference text-white">
+            JAPAN SOUVENIR
+        </a>
+        <nav class="hidden md:flex space-x-8 text-sm tracking-widest font-serif mix-blend-difference text-white z-50">
+            <a href="/category/tea" class={`hover:text-gray-300 transition-colors ${currentPage === 'tea' ? 'border-b border-white' : ''}`}>Tea</a>
+            <a href="/category/ceramics" class={`hover:text-gray-300 transition-colors ${currentPage === 'ceramics' ? 'border-b border-white' : ''}`}>Ceramics</a>
+            <a href="/category/kimono" class={`hover:text-gray-300 transition-colors ${currentPage === 'kimono' ? 'border-b border-white' : ''}`}>Kimono</a>
+            <a href="/about" class={`hover:text-gray-300 transition-colors ${currentPage === 'about' ? 'border-b border-white' : ''}`}>Story</a>
+        </nav>
+        <button class="md:hidden z-50 text-white mix-blend-difference" id="mobile-menu-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+        </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="md:hidden fixed inset-0 bg-jp-black/95 z-40 hidden" id="mobile-menu">
+        <nav class="flex flex-col items-center justify-center h-full space-y-8 text-white text-lg font-serif tracking-widest">
+            <a href="/category/tea" class="hover:text-gray-300 transition-colors">Tea</a>
+            <a href="/category/ceramics" class="hover:text-gray-300 transition-colors">Ceramics</a>
+            <a href="/category/kimono" class="hover:text-gray-300 transition-colors">Kimono</a>
+            <a href="/about" class="hover:text-gray-300 transition-colors">Story</a>
+        </nav>
+    </div>
+</header>
+
+<script>
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    }
+</script>

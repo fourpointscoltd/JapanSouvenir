@@ -1,0 +1,116 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Visiting the Delicate Craftsmanship of Takayama Chasen in Nara | Japan Souvenir">
+    <Header currentPage="tea" />
+
+    <!-- Hero Image -->
+    <section class="relative h-[60vh] w-full overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1582794543139-8ac92a9ab58d?q=80&w=2070&auto=format&fit=crop"
+                 alt="Tea Whisk Chasen"
+                 class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/40"></div>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-8 md:p-16">
+            <div class="container mx-auto">
+                <span class="text-jp-matcha text-xs font-bold tracking-[0.3em] uppercase mb-4 block">Tea</span>
+                <h1 class="text-3xl md:text-5xl font-serif text-white leading-relaxed max-w-3xl">
+                    Visiting the Delicate Craftsmanship of Takayama Chasen in Nara
+                </h1>
+                <p class="text-white/70 text-sm mt-4">January 15, 2024 · By Smith Ikue</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Content -->
+    <article class="py-16 md:py-24 bg-jp-offwhite">
+        <div class="container mx-auto px-6 max-w-3xl">
+            <div class="prose prose-lg font-serif text-jp-gray leading-loose">
+                <p class="text-xl leading-relaxed mb-8">
+                    In the quiet hills of Takayama, Nara Prefecture, a centuries-old tradition continues to thrive. Here, master craftsmen create chasen—the delicate bamboo whisks essential to the Japanese tea ceremony—using techniques passed down through generations.
+                </p>
+
+                <h2 class="text-2xl font-serif text-jp-black mt-12 mb-6">The Art of 16 Bamboo Splints</h2>
+                <p class="mb-6">
+                    Each chasen begins as a single piece of bamboo. The craftsman carefully splits it into 80 to 120 fine tines, depending on the style of tea being prepared. For thick matcha (koicha), fewer, sturdier tines are used. For thin matcha (usucha), more delicate tines create the perfect froth.
+                </p>
+                <p class="mb-6">
+                    I watched as Mr. Tanimura, a third-generation chasen maker, worked in his workshop. His hands moved with practiced precision, each movement deliberate yet fluid. "The bamboo speaks to us," he explained. "We must listen to understand how each piece wants to be shaped."
+                </p>
+
+                <!-- Placeholder for image -->
+                <div class="my-12 bg-gray-200 aspect-[4/3] flex items-center justify-center text-gray-500">
+                    [Image: Craftsman at work - to be added]
+                </div>
+
+                <h2 class="text-2xl font-serif text-jp-black mt-12 mb-6">Why Takayama?</h2>
+                <p class="mb-6">
+                    Takayama has been the center of chasen production since the Muromachi period (1336-1573). The region's humidity and the quality of local bamboo make it ideal for this craft. Today, approximately 90% of Japan's chasen are produced here by fewer than 20 remaining artisan families.
+                </p>
+                <p class="mb-6">
+                    The craft was designated as a traditional Japanese craft in 1975, recognizing its cultural significance. Yet with each passing year, fewer young people choose to carry on this demanding tradition.
+                </p>
+
+                <h2 class="text-2xl font-serif text-jp-black mt-12 mb-6">Bringing One Home</h2>
+                <p class="mb-6">
+                    A quality chasen is not merely a tool—it's a work of art that transforms the simple act of making tea into a meditative practice. Prices range from ¥2,000 for basic models to ¥20,000 or more for those made by designated master craftsmen.
+                </p>
+                <p class="mb-6">
+                    When selecting a chasen, look for:
+                </p>
+                <ul class="list-disc pl-6 mb-6 space-y-2">
+                    <li>Even, symmetrical tines that curve gracefully inward</li>
+                    <li>A smooth, carefully shaped handle</li>
+                    <li>Bamboo that shows natural variation in color</li>
+                    <li>Tines that spring back when gently pressed</li>
+                </ul>
+
+                <!-- Placeholder for image -->
+                <div class="my-12 bg-gray-200 aspect-[4/3] flex items-center justify-center text-gray-500">
+                    [Image: Close-up of chasen tines - to be added]
+                </div>
+
+                <h2 class="text-2xl font-serif text-jp-black mt-12 mb-6">Caring for Your Chasen</h2>
+                <p class="mb-6">
+                    A well-cared-for chasen can last for years. After each use, rinse it gently in warm water (never use soap) and place it on a chasen holder to dry, which helps maintain its shape. Store it away from direct sunlight and humidity.
+                </p>
+                <p class="mb-6">
+                    With time, the tines will naturally spread and some may break—this is not a defect but a sign of a well-used and loved tool. In the spirit of wabi-sabi, these imperfections add character and beauty.
+                </p>
+
+                <div class="mt-16 p-8 bg-white border-l-4 border-jp-matcha">
+                    <h3 class="text-lg font-serif text-jp-black mb-4">Visiting Information</h3>
+                    <p class="text-sm">
+                        <strong>Takayama Chasen Village</strong><br>
+                        Takayama, Ikoma City, Nara Prefecture<br>
+                        The village offers workshops and demonstrations. Reservations required.<br>
+                        Best time to visit: Spring (March-May) or Autumn (September-November)
+                    </p>
+                </div>
+            </div>
+
+            <!-- Author Section -->
+            <div class="mt-16 pt-8 border-t border-gray-200">
+                <p class="text-sm text-jp-gray">
+                    Written by <strong>Smith Ikue</strong> — A Japanese local sharing authentic souvenirs and the stories behind them.
+                </p>
+            </div>
+
+            <!-- Navigation -->
+            <div class="mt-12 flex justify-between items-center">
+                <a href="/category/tea" class="text-sm tracking-widest hover:text-jp-matcha transition-colors">
+                    &larr; Back to Tea
+                </a>
+                <a href="/articles" class="text-sm tracking-widest hover:text-jp-indigo transition-colors">
+                    All Articles &rarr;
+                </a>
+            </div>
+        </div>
+    </article>
+
+    <Footer />
+</Layout>

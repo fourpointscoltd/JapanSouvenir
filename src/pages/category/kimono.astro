@@ -1,0 +1,134 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+
+const articles = [
+    {
+        title: "The Deep Blue World of Awa Indigo: A Workshop Visit",
+        category: "Kimono",
+        date: "2024.01.08",
+        image: "https://images.unsplash.com/photo-1593132623337-37a57a840c83?q=80&w=1956&auto=format&fit=crop",
+        slug: "awa-indigo-workshop",
+        colorClass: "jp-indigo"
+    },
+    {
+        title: "Vintage Kimono: A Beginner's Guide to Buying and Wearing",
+        category: "Kimono",
+        date: "2023.12.28",
+        image: "https://images.unsplash.com/photo-1528164344705-47542687000d?q=80&w=2092&auto=format&fit=crop",
+        slug: "vintage-kimono-guide",
+        colorClass: "jp-indigo"
+    },
+    {
+        title: "Obi: The Art of the Japanese Sash",
+        category: "Kimono",
+        date: "2023.12.10",
+        image: "https://images.unsplash.com/photo-1545048702-79362596cdc9?q=80&w=2070&auto=format&fit=crop",
+        slug: "obi-art-sash",
+        colorClass: "jp-indigo"
+    }
+];
+---
+
+<Layout title="Kimono | Japan Souvenir">
+    <Header currentPage="kimono" />
+
+    <!-- Hero Section -->
+    <section class="relative h-[70vh] w-full overflow-hidden flex items-center justify-center">
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1528164344705-47542687000d?q=80&w=2092&auto=format&fit=crop"
+                 alt="Kimono Fabric"
+                 class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-jp-indigo/30"></div>
+        </div>
+        <div class="relative z-10 text-center text-white px-6">
+            <span class="text-xs font-bold tracking-[0.3em] uppercase mb-4 block opacity-80">Category</span>
+            <h1 class="text-5xl md:text-7xl font-serif mb-6">Kimono</h1>
+            <p class="text-lg md:text-xl font-serif opacity-90 max-w-xl mx-auto">
+                Woven History
+            </p>
+        </div>
+    </section>
+
+    <!-- Introduction -->
+    <section class="py-16 md:py-24 bg-jp-offwhite">
+        <div class="container mx-auto px-6 max-w-3xl text-center">
+            <p class="text-jp-gray leading-loose font-serif text-base md:text-lg">
+                The kimono is more than clothing—it's a canvas for Japanese artistry, a carrier of cultural meaning, and a garment that connects the wearer to centuries of tradition. From antique silk robes to modern accessories, discover the textile arts that embody Japan's aesthetic soul.
+            </p>
+            <p class="text-jp-gray text-sm mt-6 italic">— Smith Ikue</p>
+        </div>
+    </section>
+
+    <!-- Featured Items -->
+    <section class="py-16 bg-[#f5f5f0]">
+        <div class="container mx-auto px-6">
+            <h2 class="text-2xl font-serif mb-12 text-center">Textile Treasures</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-8 bg-white">
+                    <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-jp-indigo/10 flex items-center justify-center">
+                        <span class="text-2xl">着</span>
+                    </div>
+                    <h3 class="font-serif text-lg mb-4">Vintage Kimono</h3>
+                    <p class="text-jp-gray text-sm leading-relaxed">
+                        Antique and vintage kimono offer unmatched quality and artistry. Many can be repurposed or worn for special occasions.
+                    </p>
+                </div>
+                <div class="text-center p-8 bg-white">
+                    <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-jp-indigo/10 flex items-center justify-center">
+                        <span class="text-2xl">帯</span>
+                    </div>
+                    <h3 class="font-serif text-lg mb-4">Obi Sashes</h3>
+                    <p class="text-jp-gray text-sm leading-relaxed">
+                        These wide, decorative sashes are works of art. Antique obi make stunning table runners or wall hangings.
+                    </p>
+                </div>
+                <div class="text-center p-8 bg-white">
+                    <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-jp-indigo/10 flex items-center justify-center">
+                        <span class="text-2xl">染</span>
+                    </div>
+                    <h3 class="font-serif text-lg mb-4">Indigo Textiles</h3>
+                    <p class="text-jp-gray text-sm leading-relaxed">
+                        Natural indigo-dyed fabrics from Tokushima. Antibacterial, beautiful, and increasingly rare.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seasonal Note -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6 max-w-3xl">
+            <div class="border-l-4 border-jp-indigo pl-8">
+                <h3 class="font-serif text-xl mb-4">The Language of Seasons</h3>
+                <p class="text-jp-gray leading-loose text-sm">
+                    In kimono culture, patterns speak of seasons. Cherry blossoms for spring, flowing water for summer, autumn leaves and chrysanthemums for fall, pine and plum for winter. Wearing seasonal motifs slightly ahead of their time is considered elegant—it shows anticipation and awareness of nature's cycles.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Articles -->
+    <section class="py-16 md:py-24 bg-jp-offwhite">
+        <div class="container mx-auto px-6">
+            <h2 class="text-2xl font-serif mb-12">Articles</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {articles.map((article, index) => (
+                    <ArticleCard
+                        title={article.title}
+                        category={article.category}
+                        date={article.date}
+                        image={article.image}
+                        slug={article.slug}
+                        colorClass={article.colorClass}
+                        delay={`${index * 0.1}s`}
+                    />
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <Footer />
+</Layout>

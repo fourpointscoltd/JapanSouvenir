@@ -1,0 +1,119 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+
+const articles = [
+    {
+        title: "Incorporating Antique Imari Plates into Modern Table Settings",
+        category: "Ceramics",
+        date: "2024.01.12",
+        image: "https://images.unsplash.com/photo-1628108500295-d0505b223023?q=80&w=2070&auto=format&fit=crop",
+        slug: "antique-imari-plates",
+        colorClass: "jp-clay"
+    },
+    {
+        title: "The Beauty of Kintsugi: Embracing Imperfection",
+        category: "Ceramics",
+        date: "2024.01.02",
+        image: "https://images.unsplash.com/photo-1610701596007-11502861dcfa?q=80&w=2070&auto=format&fit=crop",
+        slug: "kintsugi-beauty",
+        colorClass: "jp-clay"
+    },
+    {
+        title: "Bizen Pottery: The Art of Fire and Earth",
+        category: "Ceramics",
+        date: "2023.12.15",
+        image: "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?q=80&w=2070&auto=format&fit=crop",
+        slug: "bizen-pottery",
+        colorClass: "jp-clay"
+    }
+];
+---
+
+<Layout title="Ceramics | Japan Souvenir">
+    <Header currentPage="ceramics" />
+
+    <!-- Hero Section -->
+    <section class="relative h-[70vh] w-full overflow-hidden flex items-center justify-center">
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?q=80&w=2070&auto=format&fit=crop"
+                 alt="Japanese Pottery"
+                 class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-jp-black/40"></div>
+        </div>
+        <div class="relative z-10 text-center text-white px-6">
+            <span class="text-xs font-bold tracking-[0.3em] uppercase mb-4 block opacity-80">Category</span>
+            <h1 class="text-5xl md:text-7xl font-serif mb-6">Ceramics</h1>
+            <p class="text-lg md:text-xl font-serif opacity-90 max-w-xl mx-auto">
+                Art of Earth and Fire
+            </p>
+        </div>
+    </section>
+
+    <!-- Introduction -->
+    <section class="py-16 md:py-24 bg-jp-offwhite">
+        <div class="container mx-auto px-6 max-w-3xl text-center">
+            <p class="text-jp-gray leading-loose font-serif text-base md:text-lg">
+                Japanese ceramics embody the philosophy that utility and beauty are inseparable. Each piece tells a story of the earth from which it came, the fire that transformed it, and the hands that shaped it. From the rustic charm of Bizen to the refined elegance of Arita, discover vessels that become more beautiful with use.
+            </p>
+            <p class="text-jp-gray text-sm mt-6 italic">— Smith Ikue</p>
+        </div>
+    </section>
+
+    <!-- Featured Items -->
+    <section class="py-16 bg-jp-black text-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-2xl font-serif mb-12 text-center">Regional Styles</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="text-center p-6">
+                    <h3 class="font-serif text-lg mb-4 text-jp-clay">Arita / Imari</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Fine porcelain with intricate blue, red, and gold decorations. The pinnacle of Japanese ceramic art.
+                    </p>
+                </div>
+                <div class="text-center p-6">
+                    <h3 class="font-serif text-lg mb-4 text-jp-clay">Bizen</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Unglazed stoneware with natural ash patterns. Each piece is unique, shaped by fire alone.
+                    </p>
+                </div>
+                <div class="text-center p-6">
+                    <h3 class="font-serif text-lg mb-4 text-jp-clay">Mashiko</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Earthy, rustic pottery made famous by Shoji Hamada. Perfect for everyday use.
+                    </p>
+                </div>
+                <div class="text-center p-6">
+                    <h3 class="font-serif text-lg mb-4 text-jp-clay">Kutani</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Bold overglaze colors and dramatic designs. Distinctive green, blue, yellow, purple, and red palette.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Articles -->
+    <section class="py-16 md:py-24 bg-jp-offwhite">
+        <div class="container mx-auto px-6">
+            <h2 class="text-2xl font-serif mb-12">Articles</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {articles.map((article, index) => (
+                    <ArticleCard
+                        title={article.title}
+                        category={article.category}
+                        date={article.date}
+                        image={article.image}
+                        slug={article.slug}
+                        colorClass={article.colorClass}
+                        delay={`${index * 0.1}s`}
+                    />
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <Footer />
+</Layout>

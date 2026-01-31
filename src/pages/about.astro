@@ -1,0 +1,92 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="About | Japan Souvenir">
+    <Header currentPage="about" />
+
+    <!-- Hero Section -->
+    <section class="relative h-[50vh] w-full overflow-hidden flex items-center justify-center">
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=2070&auto=format&fit=crop"
+                 alt="Japanese Garden"
+                 class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/50"></div>
+        </div>
+        <div class="relative z-10 text-center text-white px-6">
+            <h1 class="text-5xl md:text-6xl font-serif mb-4">About</h1>
+            <p class="text-lg opacity-80">The Story Behind Japan Souvenir</p>
+        </div>
+    </section>
+
+    <!-- About Content -->
+    <section class="py-16 md:py-24 bg-jp-offwhite">
+        <div class="container mx-auto px-6 max-w-3xl">
+            <div class="prose prose-lg font-serif text-jp-gray leading-loose">
+                <h2 class="text-3xl font-serif text-jp-black mb-8 text-center">Hello, I'm Smith Ikue</h2>
+
+                <!-- Placeholder for author photo -->
+                <div class="my-12 bg-gray-200 aspect-square max-w-xs mx-auto rounded-full flex items-center justify-center text-gray-500">
+                    [Author Photo - to be added]
+                </div>
+
+                <p class="text-lg mb-6">
+                    Born and raised in Japan, I've spent my life surrounded by the country's rich traditions of craftsmanship. Growing up, I watched my grandmother perform the tea ceremony each week, learned to fold kimono from my mother, and visited pottery studios with my father on weekend drives through the countryside.
+                </p>
+
+                <p class="mb-6">
+                    After years of living abroad and returning home, I began to see Japan with fresh eyes. What had once been familiar became fascinating—the dedication of artisans who spend decades mastering a single craft, the philosophy of finding beauty in imperfection, the way a simple object can carry centuries of cultural meaning.
+                </p>
+
+                <p class="mb-6">
+                    Japan Souvenir was born from a desire to share these discoveries with travelers and lovers of Japanese culture around the world. This isn't about tourist trinkets or mass-produced goods with "Japan" stamped on them. It's about the real things—the chasen whisk made by the 20th generation of a Nara family, the indigo-dyed textile still created using methods unchanged for 400 years, the ceramic bowl that a master potter shaped while thinking of nothing but that single moment.
+                </p>
+
+                <h3 class="text-2xl font-serif text-jp-black mt-12 mb-6">What You'll Find Here</h3>
+
+                <p class="mb-6">
+                    Each article on this site is the result of personal visits to workshops, conversations with artisans, and careful research into the history and techniques behind Japanese crafts. I write about:
+                </p>
+
+                <ul class="list-disc pl-6 mb-6 space-y-2">
+                    <li>The stories behind traditional crafts and the people who make them</li>
+                    <li>How to identify authentic, quality pieces</li>
+                    <li>Where to find the best souvenirs—from famous shops to hidden local gems</li>
+                    <li>Practical advice on buying, caring for, and using Japanese crafts</li>
+                    <li>Ways to incorporate traditional items into modern life</li>
+                </ul>
+
+                <h3 class="text-2xl font-serif text-jp-black mt-12 mb-6">My Philosophy</h3>
+
+                <p class="mb-6">
+                    The best souvenir isn't just something you bought in Japan—it's something that brings Japan into your daily life. A teacup that makes your morning ritual more meaningful. A textile that adds warmth and history to your home. An object that connects you to the hands that made it and the traditions they carry forward.
+                </p>
+
+                <p class="mb-6">
+                    I believe in buying less but buying better. In supporting artisans who preserve irreplaceable knowledge. In the idea that the things we surround ourselves with shape how we live.
+                </p>
+
+                <div class="mt-16 p-8 bg-white border-l-4 border-jp-indigo">
+                    <h3 class="text-lg font-serif text-jp-black mb-4">Get in Touch</h3>
+                    <p class="text-sm">
+                        Have questions about Japanese crafts or suggestions for future articles? I'd love to hear from you.
+                        <br><br>
+                        Email: hello@japansouvenir.com<br>
+                        Instagram: @japansouvenir
+                    </p>
+                </div>
+
+                <p class="mt-12 text-center text-jp-gray italic">
+                    Thank you for joining me on this journey through Japan's world of beautiful things.
+                </p>
+                <p class="text-center font-serif text-jp-black mt-4">
+                    — Smith Ikue
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <Footer />
+</Layout>

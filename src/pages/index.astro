@@ -1,0 +1,194 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+
+const articles = [
+    {
+        title: "Visiting the Delicate Craftsmanship of Takayama Chasen in Nara",
+        category: "Tea",
+        date: "2024.01.15",
+        image: "https://images.unsplash.com/photo-1582794543139-8ac92a9ab58d?q=80&w=2070&auto=format&fit=crop",
+        slug: "takayama-chasen-nara",
+        colorClass: "jp-indigo"
+    },
+    {
+        title: "Incorporating Antique Imari Plates into Modern Table Settings",
+        category: "Ceramics",
+        date: "2024.01.12",
+        image: "https://images.unsplash.com/photo-1628108500295-d0505b223023?q=80&w=2070&auto=format&fit=crop",
+        slug: "antique-imari-plates",
+        colorClass: "jp-clay"
+    },
+    {
+        title: "The Deep Blue World of Awa Indigo: A Workshop Visit",
+        category: "Kimono",
+        date: "2024.01.08",
+        image: "https://images.unsplash.com/photo-1593132623337-37a57a840c83?q=80&w=1956&auto=format&fit=crop",
+        slug: "awa-indigo-workshop",
+        colorClass: "jp-indigo"
+    }
+];
+---
+
+<Layout title="Japan Souvenir | Bringing Home the Shape of Memories">
+    <Header />
+
+    <!-- Hero Section -->
+    <section class="relative h-screen w-full overflow-hidden flex items-center justify-center">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=2070&auto=format&fit=crop"
+                 alt="Japanese Zen Garden"
+                 class="w-full h-full object-cover opacity-90">
+            <div class="absolute inset-0 bg-black/30"></div>
+        </div>
+
+        <!-- Hero Content -->
+        <div class="relative z-10 container mx-auto px-6 h-full flex flex-col md:flex-row items-center md:items-start justify-center md:justify-end">
+
+            <!-- Main Copy -->
+            <div class="md:absolute md:right-20 md:top-1/4 text-white md:writing-vertical md:h-auto pointer-events-none select-none md:border-r md:border-white/30 md:pr-8 text-center md:text-left">
+                <h2 class="text-4xl md:text-6xl font-serif leading-loose tracking-widest fade-in-section">
+                    Bringing Home<br>the Shape of<br>Memories
+                </h2>
+                <p class="mt-8 text-sm md:text-base tracking-widest opacity-90 fade-in-section" style="transition-delay: 0.2s;">
+                    Timeless craftsmanship<br>
+                    discovered in Japan.
+                </p>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/70 flex flex-col items-center gap-2 animate-bounce">
+            <span class="text-xs tracking-widest uppercase">Scroll</span>
+            <div class="w-[1px] h-12 bg-white/50"></div>
+        </div>
+    </section>
+
+    <!-- Concept Section -->
+    <section class="py-24 md:py-32 bg-jp-offwhite relative overflow-hidden">
+        <div class="container mx-auto px-6 text-center max-w-2xl fade-in-section">
+            <span class="text-jp-indigo text-xs font-bold tracking-[0.3em] uppercase mb-4 block">Concept</span>
+            <h3 class="text-3xl md:text-4xl font-serif mb-12 leading-relaxed">
+                Beauty Lives<br>in the Details
+            </h3>
+            <p class="text-jp-gray leading-loose font-serif text-sm md:text-base mb-8">
+                Not mass-produced souvenirs, but authentic pieces carefully crafted by artisans, one by one.<br><br>
+                The aroma of tea, the warmth of clay, the sheen of silk.<br><br>
+                I travel throughout Japan to discover treasures that touch the heart.<br>
+                These are not mere objects—they are memories given form.
+            </p>
+            <p class="text-jp-gray text-sm italic">— Smith Ikue</p>
+        </div>
+        <!-- Decorative Background Character -->
+        <div class="absolute top-10 left-0 text-[12rem] font-serif text-gray-100 -z-10 select-none opacity-50 writing-vertical">
+            和
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <div class="w-full">
+
+        <!-- Category 1: Tea -->
+        <section class="grid grid-cols-1 md:grid-cols-2 min-h-[80vh]">
+            <div class="relative h-[50vh] md:h-auto overflow-hidden group img-zoom-container">
+                <img src="https://images.unsplash.com/photo-1514733670139-4d87a1941d55?q=80&w=2089&auto=format&fit=crop"
+                     alt="Japanese Tea Ceremony"
+                     class="w-full h-full object-cover img-zoom">
+                <div class="absolute inset-0 bg-jp-matcha/10 group-hover:bg-transparent transition-colors duration-500"></div>
+            </div>
+            <div class="bg-white flex flex-col justify-center p-12 md:p-24 fade-in-section">
+                <span class="text-jp-matcha text-xs font-bold tracking-[0.3em] uppercase mb-4 block">01. Tea</span>
+                <h2 class="text-4xl font-serif mb-6 text-jp-black">The Fragrance of Tranquility</h2>
+                <h3 class="text-lg font-serif text-jp-gray mb-8">Tea Ceremony Tools & Japanese Tea</h3>
+                <p class="text-jp-gray leading-loose text-sm mb-10">
+                    The time spent preparing a bowl of tea is a small meditation within daily life.<br><br>
+                    Matcha from Kyoto's historic tea houses, teapots from Tokoname, bamboo whisks.<br>
+                    Discover the heart of Japan through all five senses.
+                </p>
+                <a href="/category/tea" class="inline-block border-b border-jp-black pb-1 text-sm tracking-widest hover:text-jp-matcha hover:border-jp-matcha transition-colors w-max">
+                    READ MORE &rarr;
+                </a>
+            </div>
+        </section>
+
+        <!-- Category 2: Ceramics -->
+        <section class="grid grid-cols-1 md:grid-cols-2 min-h-[80vh]">
+            <div class="bg-jp-black text-white flex flex-col justify-center p-12 md:p-24 order-2 md:order-1 fade-in-section">
+                <span class="text-jp-clay text-xs font-bold tracking-[0.3em] uppercase mb-4 block">02. Ceramics</span>
+                <h2 class="text-4xl font-serif mb-6">Art of Earth and Fire</h2>
+                <h3 class="text-lg font-serif text-gray-400 mb-8">Pottery & Tableware</h3>
+                <p class="text-gray-300 leading-loose text-sm mb-10">
+                    The beauty of kintsugi repairs, the earthy texture of Bizen, the delicate paintings of Arita.<br><br>
+                    Vessels are said to be the kimono of cuisine.<br>
+                    Discover the charm of pottery that grows more beautiful with use.
+                </p>
+                <a href="/category/ceramics" class="inline-block border-b border-white pb-1 text-sm tracking-widest hover:text-jp-clay hover:border-jp-clay transition-colors w-max">
+                    READ MORE &rarr;
+                </a>
+            </div>
+            <div class="relative h-[50vh] md:h-auto overflow-hidden group img-zoom-container order-1 md:order-2">
+                <img src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?q=80&w=2070&auto=format&fit=crop"
+                     alt="Japanese Pottery"
+                     class="w-full h-full object-cover img-zoom">
+            </div>
+        </section>
+
+        <!-- Category 3: Kimono -->
+        <section class="grid grid-cols-1 md:grid-cols-2 min-h-[80vh]">
+            <div class="relative h-[50vh] md:h-auto overflow-hidden group img-zoom-container">
+                <img src="https://images.unsplash.com/photo-1528164344705-47542687000d?q=80&w=2092&auto=format&fit=crop"
+                     alt="Kimono Fabric"
+                     class="w-full h-full object-cover img-zoom">
+            </div>
+            <div class="bg-[#f5f5f0] flex flex-col justify-center p-12 md:p-24 fade-in-section">
+                <span class="text-jp-indigo text-xs font-bold tracking-[0.3em] uppercase mb-4 block">03. Kimono</span>
+                <h2 class="text-4xl font-serif mb-6 text-jp-black">Woven History</h2>
+                <h3 class="text-lg font-serif text-jp-gray mb-8">Kimono, Obi & Japanese Accessories</h3>
+                <p class="text-jp-gray leading-loose text-sm mb-10">
+                    The luster of silk, intricate patterns, the joy of wearing the seasons.<br><br>
+                    From antique kimono to modern accessories easy to incorporate into daily life.<br>
+                    Unravel the culture of fabric where Japanese aesthetics are condensed.
+                </p>
+                <a href="/category/kimono" class="inline-block border-b border-jp-black pb-1 text-sm tracking-widest hover:text-jp-indigo hover:border-jp-indigo transition-colors w-max">
+                    READ MORE &rarr;
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Latest Articles -->
+    <section class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-between items-end mb-16 fade-in-section">
+                <div>
+                    <h3 class="text-3xl font-serif mb-2">Latest Collection</h3>
+                    <p class="text-xs tracking-widest text-jp-gray uppercase">New Discoveries</p>
+                </div>
+                <a href="/articles" class="hidden md:block text-sm tracking-widest hover:text-jp-indigo transition-colors">VIEW ALL</a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {articles.map((article, index) => (
+                    <ArticleCard
+                        title={article.title}
+                        category={article.category}
+                        date={article.date}
+                        image={article.image}
+                        slug={article.slug}
+                        colorClass={article.colorClass}
+                        delay={`${index * 0.1}s`}
+                    />
+                ))}
+            </div>
+
+            <div class="mt-12 text-center md:hidden">
+                <a href="/articles" class="text-sm tracking-widest hover:text-jp-indigo transition-colors border-b border-jp-black pb-1">VIEW ALL</a>
+            </div>
+        </div>
+    </section>
+
+    <Footer />
+</Layout>

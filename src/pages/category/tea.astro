@@ -1,0 +1,122 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+
+const articles = [
+    {
+        title: "Visiting the Delicate Craftsmanship of Takayama Chasen in Nara",
+        category: "Tea",
+        date: "2024.01.15",
+        image: "https://images.unsplash.com/photo-1582794543139-8ac92a9ab58d?q=80&w=2070&auto=format&fit=crop",
+        slug: "takayama-chasen-nara",
+        colorClass: "jp-matcha"
+    },
+    {
+        title: "Kyoto's Hidden Tea Houses: A Journey Through Uji",
+        category: "Tea",
+        date: "2024.01.05",
+        image: "https://images.unsplash.com/photo-1514733670139-4d87a1941d55?q=80&w=2089&auto=format&fit=crop",
+        slug: "kyoto-uji-tea-houses",
+        colorClass: "jp-matcha"
+    },
+    {
+        title: "The Art of Selecting Japanese Green Tea: A Complete Guide",
+        category: "Tea",
+        date: "2023.12.20",
+        image: "https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?q=80&w=2070&auto=format&fit=crop",
+        slug: "selecting-japanese-green-tea",
+        colorClass: "jp-matcha"
+    }
+];
+---
+
+<Layout title="Tea | Japan Souvenir">
+    <Header currentPage="tea" />
+
+    <!-- Hero Section -->
+    <section class="relative h-[70vh] w-full overflow-hidden flex items-center justify-center">
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1514733670139-4d87a1941d55?q=80&w=2089&auto=format&fit=crop"
+                 alt="Japanese Tea Ceremony"
+                 class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-jp-matcha/30"></div>
+        </div>
+        <div class="relative z-10 text-center text-white px-6">
+            <span class="text-xs font-bold tracking-[0.3em] uppercase mb-4 block opacity-80">Category</span>
+            <h1 class="text-5xl md:text-7xl font-serif mb-6">Tea</h1>
+            <p class="text-lg md:text-xl font-serif opacity-90 max-w-xl mx-auto">
+                The Fragrance of Tranquility
+            </p>
+        </div>
+    </section>
+
+    <!-- Introduction -->
+    <section class="py-16 md:py-24 bg-jp-offwhite">
+        <div class="container mx-auto px-6 max-w-3xl text-center">
+            <p class="text-jp-gray leading-loose font-serif text-base md:text-lg">
+                The Japanese tea ceremony is more than preparing a beverage—it's a meditation, an art form, and a philosophy of life distilled into a bowl of green tea. From the finest matcha of Uji to the handcrafted tools that make each ceremony possible, discover the world of Japanese tea culture.
+            </p>
+            <p class="text-jp-gray text-sm mt-6 italic">— Smith Ikue</p>
+        </div>
+    </section>
+
+    <!-- Featured Items -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-2xl font-serif mb-12 text-center">What to Look For</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-8">
+                    <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-jp-matcha/10 flex items-center justify-center">
+                        <span class="text-2xl">茶</span>
+                    </div>
+                    <h3 class="font-serif text-lg mb-4">Matcha & Green Tea</h3>
+                    <p class="text-jp-gray text-sm leading-relaxed">
+                        From ceremonial-grade matcha to everyday sencha, Japan's tea varieties offer depth and nuance found nowhere else.
+                    </p>
+                </div>
+                <div class="text-center p-8">
+                    <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-jp-matcha/10 flex items-center justify-center">
+                        <span class="text-2xl">筅</span>
+                    </div>
+                    <h3 class="font-serif text-lg mb-4">Chasen (Tea Whisk)</h3>
+                    <p class="text-jp-gray text-sm leading-relaxed">
+                        Handcrafted bamboo whisks from Takayama, essential for creating the perfect bowl of matcha.
+                    </p>
+                </div>
+                <div class="text-center p-8">
+                    <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-jp-matcha/10 flex items-center justify-center">
+                        <span class="text-2xl">急</span>
+                    </div>
+                    <h3 class="font-serif text-lg mb-4">Kyusu (Teapot)</h3>
+                    <p class="text-jp-gray text-sm leading-relaxed">
+                        Side-handled teapots from Tokoname and Banko, designed specifically for brewing Japanese green tea.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Articles -->
+    <section class="py-16 md:py-24 bg-jp-offwhite">
+        <div class="container mx-auto px-6">
+            <h2 class="text-2xl font-serif mb-12">Articles</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {articles.map((article, index) => (
+                    <ArticleCard
+                        title={article.title}
+                        category={article.category}
+                        date={article.date}
+                        image={article.image}
+                        slug={article.slug}
+                        colorClass={article.colorClass}
+                        delay={`${index * 0.1}s`}
+                    />
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <Footer />
+</Layout>

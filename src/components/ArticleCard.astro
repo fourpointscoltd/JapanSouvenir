@@ -1,0 +1,24 @@
+---
+interface Props {
+  title: string;
+  category: string;
+  date: string;
+  image: string;
+  slug: string;
+  colorClass?: string;
+  delay?: string;
+}
+
+const { title, category, date, image, slug, colorClass = 'jp-indigo', delay = '0s' } = Astro.props;
+---
+
+<article class="group cursor-pointer fade-in-section" style={`transition-delay: ${delay};`}>
+    <a href={`/articles/${slug}`}>
+        <div class="overflow-hidden mb-4 relative aspect-[3/4]">
+            <img src={image} alt={title} class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            <div class="absolute top-4 left-4 bg-white/90 px-3 py-1 text-[10px] tracking-widest uppercase">{category}</div>
+        </div>
+        <h4 class={`text-lg font-serif leading-relaxed group-hover:text-${colorClass} transition-colors`}>{title}</h4>
+        <p class="text-xs text-gray-400 mt-2">{date}</p>
+    </a>
+</article>

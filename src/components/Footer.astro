@@ -1,0 +1,36 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-[#1a1a1a] text-white pt-20 pb-10">
+    <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20 border-b border-gray-800 pb-12">
+            <div>
+                <h2 class="text-2xl font-serif tracking-widest mb-6">JAPAN SOUVENIR</h2>
+                <p class="text-sm text-gray-400 leading-loose mb-6">
+                    Sharing the beauty and craftsmanship<br>
+                    of Japan with the world.
+                </p>
+                <p class="text-sm text-gray-500 mb-4">Written by Smith Ikue</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">Instagram</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">Twitter</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">Pinterest</a>
+                </div>
+            </div>
+            <div class="flex flex-col justify-end items-start md:items-end">
+                <p class="text-xs text-gray-500 mb-4 tracking-widest uppercase">Menu</p>
+                <nav class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-8 text-sm font-serif">
+                    <a href="/category/tea" class="hover:text-gray-300 transition-colors">Tea</a>
+                    <a href="/category/ceramics" class="hover:text-gray-300 transition-colors">Ceramics</a>
+                    <a href="/category/kimono" class="hover:text-gray-300 transition-colors">Kimono</a>
+                    <a href="/about" class="hover:text-gray-300 transition-colors">About</a>
+                </nav>
+            </div>
+        </div>
+        <div class="flex flex-col md:flex-row justify-between items-center text-xs text-gray-600">
+            <p>&copy; {currentYear} Japan Souvenir by Smith Ikue. All rights reserved.</p>
+            <p class="mt-2 md:mt-0">Designed for Authenticity.</p>
+        </div>
+    </div>
+</footer>
