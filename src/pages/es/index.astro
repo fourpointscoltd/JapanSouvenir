@@ -1,0 +1,197 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+
+const lang = 'es';
+
+const articles = [
+    {
+        title: "Porcelana Arita: La Primera Porcelana de Japón y Tu Guía Definitiva de Souvenirs",
+        category: "Cerámica",
+        date: "2024.02.01",
+        image: "/images/arita-tea-set.jpg",
+        slug: "arita-ware-guide",
+        colorClass: "jp-clay"
+    },
+    {
+        title: "Visitando la Delicada Artesanía del Takayama Chasen en Nara",
+        category: "Té",
+        date: "2024.01.15",
+        image: "/images/yokan-tea.jpg",
+        slug: "takayama-chasen-nara",
+        colorClass: "jp-indigo"
+    },
+    {
+        title: "El Mundo Azul Profundo del Índigo Awa: Una Visita al Taller",
+        category: "Kimono",
+        date: "2024.01.08",
+        image: "/images/kyoto-street.jpg",
+        slug: "awa-indigo-workshop",
+        colorClass: "jp-indigo"
+    }
+];
+---
+
+<Layout title="Japan Souvenir | Llevando a Casa la Forma de los Recuerdos">
+    <Header lang={lang} />
+
+    <!-- Hero Section -->
+    <section class="relative h-screen w-full overflow-hidden flex items-center justify-center">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=2070&auto=format&fit=crop"
+                 alt="Jardín Zen Japonés"
+                 class="w-full h-full object-cover opacity-90">
+            <div class="absolute inset-0 bg-black/30"></div>
+        </div>
+
+        <!-- Hero Content -->
+        <div class="relative z-10 container mx-auto px-6 h-full flex flex-col md:flex-row items-center md:items-start justify-center md:justify-end">
+
+            <!-- Main Copy -->
+            <div class="md:absolute md:right-20 md:top-1/4 text-white md:writing-vertical md:h-auto pointer-events-none select-none md:border-r md:border-white/30 md:pr-8 text-center md:text-left">
+                <h2 class="text-4xl md:text-6xl font-serif leading-loose tracking-widest fade-in-section">
+                    Llevando a Casa<br>la Forma de<br>los Recuerdos
+                </h2>
+                <p class="mt-8 text-sm md:text-base tracking-widest opacity-90 fade-in-section" style="transition-delay: 0.2s;">
+                    Artesanía atemporal<br>
+                    descubierta en Japón.
+                </p>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/70 flex flex-col items-center gap-2 animate-bounce">
+            <span class="text-xs tracking-widest uppercase">Desplazar</span>
+            <div class="w-[1px] h-12 bg-white/50"></div>
+        </div>
+    </section>
+
+    <!-- Concept Section -->
+    <section class="py-24 md:py-32 bg-jp-offwhite relative overflow-hidden">
+        <div class="container mx-auto px-6 text-center max-w-2xl fade-in-section">
+            <span class="text-jp-indigo text-xs font-bold tracking-[0.3em] uppercase mb-4 block">Concepto</span>
+            <h3 class="text-3xl md:text-4xl font-serif mb-12 leading-relaxed">
+                La Belleza Vive<br>en los Detalles
+            </h3>
+            <p class="text-jp-gray leading-loose font-serif text-sm md:text-base mb-8">
+                No souvenirs producidos en masa, sino piezas auténticas cuidadosamente elaboradas por artesanos, una por una.<br><br>
+                El aroma del té, el calor de la arcilla, el brillo de la seda.<br><br>
+                Viajo por todo Japón para descubrir tesoros que tocan el corazón.<br>
+                Estos no son meros objetos — son recuerdos encarnados.
+            </p>
+            <p class="text-jp-gray text-sm italic">— Smith Ikue</p>
+        </div>
+        <!-- Decorative Background Character -->
+        <div class="absolute top-10 left-0 text-[12rem] font-serif text-gray-100 -z-10 select-none opacity-50 writing-vertical">
+            和
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <div class="w-full">
+
+        <!-- Category 1: Tea -->
+        <section class="grid grid-cols-1 md:grid-cols-2 min-h-[80vh]">
+            <div class="relative h-[50vh] md:h-auto overflow-hidden group img-zoom-container">
+                <img src="/images/tea-ceremony.jpg"
+                     alt="Ceremonia del Té Japonesa"
+                     class="w-full h-full object-cover img-zoom">
+                <div class="absolute inset-0 bg-jp-matcha/10 group-hover:bg-transparent transition-colors duration-500"></div>
+            </div>
+            <div class="bg-white flex flex-col justify-center p-12 md:p-24 fade-in-section">
+                <span class="text-jp-matcha text-xs font-bold tracking-[0.3em] uppercase mb-4 block">01. Té</span>
+                <h2 class="text-4xl font-serif mb-6 text-jp-black">La Fragancia de la Tranquilidad</h2>
+                <h3 class="text-lg font-serif text-jp-gray mb-8">Utensilios de Ceremonia del Té & Té Japonés</h3>
+                <p class="text-jp-gray leading-loose text-sm mb-10">
+                    El tiempo dedicado a preparar un tazón de té es una pequeña meditación en la vida diaria.<br><br>
+                    Matcha de las históricas casas de té de Kioto, teteras de Tokoname, batidores de bambú.<br>
+                    Descubre el corazón de Japón a través de los cinco sentidos.
+                </p>
+                <a href="/es/category/tea" class="inline-block border-b border-jp-black pb-1 text-sm tracking-widest hover:text-jp-matcha hover:border-jp-matcha transition-colors w-max">
+                    LEER MÁS &rarr;
+                </a>
+            </div>
+        </section>
+
+        <!-- Category 2: Ceramics -->
+        <section class="grid grid-cols-1 md:grid-cols-2 min-h-[80vh]">
+            <div class="bg-jp-black text-white flex flex-col justify-center p-12 md:p-24 order-2 md:order-1 fade-in-section">
+                <span class="text-jp-clay text-xs font-bold tracking-[0.3em] uppercase mb-4 block">02. Cerámica</span>
+                <h2 class="text-4xl font-serif mb-6">Arte de Tierra y Fuego</h2>
+                <h3 class="text-lg font-serif text-gray-400 mb-8">Cerámica & Vajilla</h3>
+                <p class="text-gray-300 leading-loose text-sm mb-10">
+                    La belleza de las reparaciones kintsugi, la textura terrosa de Bizen, las delicadas pinturas de Arita.<br><br>
+                    Se dice que los recipientes son el kimono de la cocina.<br>
+                    Descubre el encanto de la cerámica que se vuelve más bella con el uso.
+                </p>
+                <a href="/es/category/ceramics" class="inline-block border-b border-white pb-1 text-sm tracking-widest hover:text-jp-clay hover:border-jp-clay transition-colors w-max">
+                    LEER MÁS &rarr;
+                </a>
+            </div>
+            <div class="relative h-[50vh] md:h-auto overflow-hidden group img-zoom-container order-1 md:order-2">
+                <img src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?q=80&w=2070&auto=format&fit=crop"
+                     alt="Cerámica Japonesa"
+                     class="w-full h-full object-cover img-zoom">
+            </div>
+        </section>
+
+        <!-- Category 3: Kimono -->
+        <section class="grid grid-cols-1 md:grid-cols-2 min-h-[80vh]">
+            <div class="relative h-[50vh] md:h-auto overflow-hidden group img-zoom-container">
+                <img src="/images/kimono-couple.jpg"
+                     alt="Pareja en Kimono"
+                     class="w-full h-full object-cover img-zoom">
+            </div>
+            <div class="bg-[#f5f5f0] flex flex-col justify-center p-12 md:p-24 fade-in-section">
+                <span class="text-jp-indigo text-xs font-bold tracking-[0.3em] uppercase mb-4 block">03. Kimono</span>
+                <h2 class="text-4xl font-serif mb-6 text-jp-black">Historia Tejida</h2>
+                <h3 class="text-lg font-serif text-jp-gray mb-8">Kimono, Obi & Accesorios Japoneses</h3>
+                <p class="text-jp-gray leading-loose text-sm mb-10">
+                    El brillo de la seda, los patrones intrincados, la alegría de vestir las estaciones.<br><br>
+                    Desde kimono antiguo hasta accesorios modernos fáciles de incorporar a la vida diaria.<br>
+                    Desentraña la cultura del tejido donde la estética japonesa está condensada.
+                </p>
+                <a href="/es/category/kimono" class="inline-block border-b border-jp-black pb-1 text-sm tracking-widest hover:text-jp-indigo hover:border-jp-indigo transition-colors w-max">
+                    LEER MÁS &rarr;
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Latest Articles -->
+    <section class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-between items-end mb-16 fade-in-section">
+                <div>
+                    <h3 class="text-3xl font-serif mb-2">Última Colección</h3>
+                    <p class="text-xs tracking-widest text-jp-gray uppercase">Nuevos Descubrimientos</p>
+                </div>
+                <a href="/es/articles" class="hidden md:block text-sm tracking-widest hover:text-jp-indigo transition-colors">VER TODO</a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {articles.map((article, index) => (
+                    <ArticleCard
+                        title={article.title}
+                        category={article.category}
+                        date={article.date}
+                        image={article.image}
+                        slug={article.slug}
+                        colorClass={article.colorClass}
+                        delay={`${index * 0.1}s`}
+                        lang={lang}
+                    />
+                ))}
+            </div>
+
+            <div class="mt-12 text-center md:hidden">
+                <a href="/es/articles" class="text-sm tracking-widest hover:text-jp-indigo transition-colors border-b border-jp-black pb-1">VER TODO</a>
+            </div>
+        </div>
+    </section>
+
+    <Footer lang={lang} />
+</Layout>

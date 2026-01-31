@@ -1,4 +1,6 @@
 ---
+import { type Lang } from '../i18n/languages';
+
 interface Props {
   title: string;
   category: string;
@@ -7,13 +9,19 @@ interface Props {
   slug: string;
   colorClass?: string;
   delay?: string;
+  lang?: Lang;
 }
 
-const { title, category, date, image, slug, colorClass = 'jp-indigo', delay = '0s' } = Astro.props;
+const { title, category, date, image, slug, colorClass = 'jp-indigo', delay = '0s', lang = 'en' } = Astro.props;
+
+const getLocalizedPath = (path: string) => {
+  if (lang === 'en') return path;
+  return `/${lang}${path}`;
+};
 ---
 
 <article class="group cursor-pointer fade-in-section" style={`transition-delay: ${delay};`}>
-    <a href={`/articles/${slug}`}>
+    <a href={getLocalizedPath(`/articles/${slug}`)}>
         <div class="overflow-hidden mb-4 relative aspect-[3/4]">
             <img src={image} alt={title} class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
             <div class="absolute top-4 left-4 bg-white/90 px-3 py-1 text-[10px] tracking-widest uppercase">{category}</div>
