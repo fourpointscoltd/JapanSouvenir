@@ -1,22 +1,38 @@
 ---
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import { type Lang } from '../i18n/languages';
+
 interface Props {
   currentPage?: string;
+  lang?: Lang;
 }
 
-const { currentPage = '' } = Astro.props;
+const { currentPage = '', lang = 'en' } = Astro.props;
+const currentPath = Astro.url.pathname;
+
+// Get localized paths based on current language
+const getLocalizedPath = (path: string) => {
+  if (lang === 'en') return path;
+  return `/${lang}${path}`;
+};
 ---
 
 <header class="fixed top-0 w-full z-50 transition-all duration-300" id="header">
     <div class="container mx-auto px-6 py-6 flex justify-between items-center">
-        <a href="/" class="text-xl font-serif tracking-widest font-bold z-50 mix-blend-difference text-white">
+        <a href={getLocalizedPath('/')} class="text-xl font-serif tracking-widest font-bold z-50 mix-blend-difference text-white">
             JAPAN SOUVENIR
         </a>
-        <nav class="hidden md:flex space-x-8 text-sm tracking-widest font-serif mix-blend-difference text-white z-50">
-            <a href="/category/tea" class={`hover:text-gray-300 transition-colors ${currentPage === 'tea' ? 'border-b border-white' : ''}`}>Tea</a>
-            <a href="/category/ceramics" class={`hover:text-gray-300 transition-colors ${currentPage === 'ceramics' ? 'border-b border-white' : ''}`}>Ceramics</a>
-            <a href="/category/kimono" class={`hover:text-gray-300 transition-colors ${currentPage === 'kimono' ? 'border-b border-white' : ''}`}>Kimono</a>
-            <a href="/about" class={`hover:text-gray-300 transition-colors ${currentPage === 'about' ? 'border-b border-white' : ''}`}>Story</a>
-        </nav>
+        <div class="hidden md:flex items-center space-x-8">
+            <nav class="flex space-x-8 text-sm tracking-widest font-serif mix-blend-difference text-white z-50">
+                <a href={getLocalizedPath('/category/tea')} class={`hover:text-gray-300 transition-colors ${currentPage === 'tea' ? 'border-b border-white' : ''}`}>Tea</a>
+                <a href={getLocalizedPath('/category/ceramics')} class={`hover:text-gray-300 transition-colors ${currentPage === 'ceramics' ? 'border-b border-white' : ''}`}>Ceramics</a>
+                <a href={getLocalizedPath('/category/kimono')} class={`hover:text-gray-300 transition-colors ${currentPage === 'kimono' ? 'border-b border-white' : ''}`}>Kimono</a>
+                <a href={getLocalizedPath('/about')} class={`hover:text-gray-300 transition-colors ${currentPage === 'about' ? 'border-b border-white' : ''}`}>Story</a>
+            </nav>
+            <div class="mix-blend-difference text-white z-50">
+                <LanguageSwitcher currentLang={lang} currentPath={currentPath} />
+            </div>
+        </div>
         <button class="md:hidden z-50 text-white mix-blend-difference" id="mobile-menu-btn">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
@@ -27,10 +43,13 @@ const { currentPage = '' } = Astro.props;
     <!-- Mobile Menu -->
     <div class="md:hidden fixed inset-0 bg-jp-black/95 z-40 hidden" id="mobile-menu">
         <nav class="flex flex-col items-center justify-center h-full space-y-8 text-white text-lg font-serif tracking-widest">
-            <a href="/category/tea" class="hover:text-gray-300 transition-colors">Tea</a>
-            <a href="/category/ceramics" class="hover:text-gray-300 transition-colors">Ceramics</a>
-            <a href="/category/kimono" class="hover:text-gray-300 transition-colors">Kimono</a>
-            <a href="/about" class="hover:text-gray-300 transition-colors">Story</a>
+            <a href={getLocalizedPath('/category/tea')} class="hover:text-gray-300 transition-colors">Tea</a>
+            <a href={getLocalizedPath('/category/ceramics')} class="hover:text-gray-300 transition-colors">Ceramics</a>
+            <a href={getLocalizedPath('/category/kimono')} class="hover:text-gray-300 transition-colors">Kimono</a>
+            <a href={getLocalizedPath('/about')} class="hover:text-gray-300 transition-colors">Story</a>
+            <div class="pt-8 border-t border-gray-700 w-32">
+                <LanguageSwitcher currentLang={lang} currentPath={currentPath} />
+            </div>
         </nav>
     </div>
 </header>

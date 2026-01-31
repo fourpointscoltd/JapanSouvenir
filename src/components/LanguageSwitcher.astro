@@ -1,0 +1,75 @@
+---
+import { languages, type Lang } from '../i18n/languages';
+
+interface Props {
+  currentLang: Lang;
+  currentPath: string;
+}
+
+const { currentLang, currentPath } = Astro.props;
+
+// Remove language prefix from path if it exists
+function getBasePath(path: string): string {
+  const langPrefixes = Object.keys(languages);
+  for (const lang of langPrefixes) {
+    if (path.startsWith(`/${lang}/`) || path === `/${lang}`) {
+      return path.replace(`/${lang}`, '') || '/';
+    }
+  }
+  return path;
+}
+
+const basePath = getBasePath(currentPath);
+
+function getLocalizedUrl(lang: Lang): string {
+  if (lang === 'en') {
+    return basePath;
+  }
+  return `/${lang}${basePath}`;
+}
+---
+
+<div class="relative" id="lang-switcher">
+  <button
+    class="flex items-center gap-2 text-sm tracking-widest hover:text-gray-300 transition-colors"
+    id="lang-btn"
+    aria-label="Select language"
+  >
+    <span>{languages[currentLang].flag}</span>
+    <span class="hidden sm:inline">{languages[currentLang].name}</span>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+      <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+    </svg>
+  </button>
+
+  <div
+    class="absolute right-0 top-full mt-2 bg-white text-jp-black rounded-lg shadow-lg py-2 min-w-[140px] hidden z-50"
+    id="lang-dropdown"
+  >
+    {Object.entries(languages).map(([lang, { name, flag }]) => (
+      <a
+        href={getLocalizedUrl(lang as Lang)}
+        class={`flex items-center gap-2 px-4 py-2 hover:bg-gray-100 transition-colors ${currentLang === lang ? 'bg-gray-50 font-medium' : ''}`}
+      >
+        <span>{flag}</span>
+        <span>{name}</span>
+      </a>
+    ))}
+  </div>
+</div>
+
+<script>
+  const btn = document.getElementById('lang-btn');
+  const dropdown = document.getElementById('lang-dropdown');
+
+  if (btn && dropdown) {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      dropdown.classList.toggle('hidden');
+    });
+
+    document.addEventListener('click', () => {
+      dropdown.classList.add('hidden');
+    });
+  }
+</script>
